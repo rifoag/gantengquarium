@@ -8,9 +8,10 @@ class node {
     public :
         node<T>* next;
         T info;
-        node<T>(){
-            // nigga
-        }
+
+    node<T>(){
+        // nigga
+    }
 };
 
 template <class T>
@@ -67,7 +68,7 @@ class linkedList {
             }
             if (Found || temp->info==el){
                 return i;
-            } else{
+            } else {
                 return -1;
             }
         }
