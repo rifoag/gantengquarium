@@ -4,15 +4,20 @@
 #include <cstddef>
 
 template <class T>
-class linkedList {
-    struct node {
+class node {
+    public :
+        node<T>* next;
         T info;
-        node* next;
-    };
+        node<T>(){
+            // nigga
+        }
+};
 
+template <class T>
+class linkedList {
     private:
-        node* head;
-        node* tail;
+        node<T>* head;
+        node<T>* tail;
 
     public:
         // ctor
@@ -26,7 +31,7 @@ class linkedList {
         }
 
         // Getter dan Setter
-        node* getHead(){
+        node<T>* getHead(){
             return head;
         }
 
@@ -34,11 +39,11 @@ class linkedList {
             return head->info;
         }
 
-        node* getTail(){
+        node<T>* getTail(){
             return tail;
         }
 
-        node* getNext(node * currentNode){
+        node<T>* getNext(node<T> * currentNode){
           return currentNode->next;
         }
 
@@ -48,7 +53,7 @@ class linkedList {
 
         // Mengembalikan indeks di mana el berada pada list. Mengembalikan -1 jika tidak ada
         int find(T el){
-            node* temp = new node;
+            node<T>* temp = new node<T>();
             bool Found = false;
             int i=0;
             temp = head;
@@ -74,7 +79,7 @@ class linkedList {
 
         // Menambahkan el sebagai elemen paling belakang pada linked list
         void add(T el){
-            node* temp = new node;
+            node<T>* temp = new node<T>();
             temp->info = el;
             temp->next = NULL;
             if (head == NULL){
@@ -89,8 +94,8 @@ class linkedList {
 
         // Membuang elemen dengan identitas demikian
         void remove(T el){
-            node* temp = new node;
-            node* before = new node;
+            node<T>* temp = new node<T>();
+            node<T>* before = new node<T>();
             bool Found = false;
             int i=0;
             temp = head;
@@ -111,7 +116,7 @@ class linkedList {
 
         // Mengembalikan elemen dengan tipe T pada indeks ke-i
         T get(int idx){
-            node* temp = new node;
+            node<T>* temp = new node<T>();
             int i;
             temp=head;
             for(i=0;i<idx;i++){

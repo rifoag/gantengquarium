@@ -52,6 +52,6 @@ int entity::getOrdinat(){
 	return pos.second;
 }
 
-void entity::setPos(int x, int y){
-	pos = std::make_pair(double,double);
+void entity::setPos(double x, double y){
+	pos = std::make_pair(x,y);
 }

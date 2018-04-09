@@ -1,4 +1,5 @@
 #include "aquarium.hpp"
+#include "linkedList.hpp"
 
  // ctor
 // Memunculkan satu siput, dimensi akuarium maksimum
@@ -11,8 +12,11 @@ aquarium::~aquarium(){
 
 void aquarium::moveAll(double diff) {
 // menggerakkan semua entity yang ada di aquarium
-  guppy temp = listGuppy.getHeadItem();
-  temp.move(diff);
+  node<guppy>* temp = listGuppy.getHead();
+  while (temp!=NULL){
+     temp->info.move(diff);
+     temp=temp->next;
+  }
 }
 
 void aquarium::eatAllFish(){}// ikan yang lapar akan mencari makan jika tidak maka tidak terjadi apa apa
@@ -22,7 +26,6 @@ void takeCoinAllSnail(){} // semua snail mengambil coin jika ada koin di sekitar
 void aquarium::addGuppy(){
     // menambahkan seekor guppy pada list Guppy
     guppy new_guppy;
-
     listGuppy.add(new_guppy);
 }
 void aquarium::addPiranha(){} // menambahkan seekor piranha pada listFish
@@ -45,7 +48,7 @@ int aquarium::findIdxFood(food el){} //mengembalikan indeks di mana el berada pa
 guppy aquarium::findGuppy(int id){
     // mengembalikan guppy dengan indeks ke id
     guppy search = listGuppy.get(id);
-    cout << search.GetOrientation() << endl;
+    // cout << search.GetOrientation() << endl;
     return search;
 }
 piranha aquarium::findPiranha(int id){} // mengembalikan piranha dengan indeks ke id

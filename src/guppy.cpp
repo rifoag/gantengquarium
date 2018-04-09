@@ -1,13 +1,9 @@
 #include "guppy.hpp"
-#include "oop.hpp"
+// #include "oop.hpp"
 
 // ctor
 guppy::guppy() : fish(){
-    // posx = 100;
-    // posy = 199;
-    // pos.first = 100;
-    // pos.second = 100;
-    cout << "guppy added at " << pos.first <<"," <<pos.second << endl;
+    // cout << "guppy added at " << pos.first <<"," <<pos.second << endl;
 }
 
 // ctor
@@ -38,26 +34,28 @@ void guppy::move(double diff){
 	// posx += diff;
   // draw_image("ikanLv1Right.png", posx, posy);
   int initial = 0;
+  pos.first += 20;
+  pos.second -= 10;
 	// cout << posx <<" "<< posy<<endl;
-  if (orientation == 'R'){
-    pos.first = pos.first + diff*SPEED + initial;
-    draw_image("ikanLv1Right.png", pos.first, pos.second);
-  } else {
-    pos.first = pos.first + diff*SPEED - initial;
-    draw_image("ikanLv1Left.png", pos.first, pos.second);
-  }
+  // if (orientation == 'R'){
+  //   pos.first = pos.first + diff*SPEED + initial;
+  //   draw_image("ikanLv1Right.png", pos.first, pos.second);
+  // } else {
+  //   pos.first = pos.first + diff*SPEED - initial;
+  //   draw_image("ikanLv1Left.png", pos.first, pos.second);
+  // }
 
-  if (pos.first+diff*SPEED > SCREEN_WIDTH - 20) {
-      cout << pos.first <<" to left" << endl;
-      orientation = 'L';
-      initial = diff*SPEED;
-      SPEED *= -1;
-  }  else if (pos.first+diff*SPEED< 20){
-      cout << pos.first<<" to right" << endl;
-      orientation = 'R';
-      initial = diff*SPEED;
-      SPEED *= -1;
-  }
+  // if (pos.first+diff*SPEED > SCREEN_WIDTH - 20) {
+  //     cout << pos.first <<" to left" << endl;
+  //     orientation = 'L';
+  //     initial = diff*SPEED;
+  //     SPEED *= -1;
+  // }  else if (pos.first+diff*SPEED< 20){
+  //     cout << pos.first<<" to right" << endl;
+  //     orientation = 'R';
+  //     initial = diff*SPEED;
+  //     SPEED *= -1;
+  // }
 }
 
 // Saat lapar, Guppy akan mendekati makanan ikan yang ada di akuarium
