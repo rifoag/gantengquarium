@@ -6,13 +6,13 @@ using namespace std;
 
 class entity {
     protected:
-        pair<int,int> pos; // posisi entitas di akuarium
+        pair<double,double> pos; // posisi entitas di akuarium
     
     public:
         // ctor, attribut pos mula-mula diisi nilai acak
         entity();
 		// ctor user defined
-		entity(int,int);
+		entity(double,double);
 		// cctor
 		entity(const entity&);
         // dtor
@@ -26,7 +26,7 @@ class entity {
         // Mengembalikan ordinat dari posisi saat ini
         int getOrdinat();
         // Menset ulang posisi entitas di akuarium
-        void setPos(int x, int y);
+        void setPos(double x, double y);
 };
 
 #endif
