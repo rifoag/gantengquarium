@@ -59,10 +59,22 @@ void aquarium::delFood(int idx){} // menghapus sebuah makanan pada listFoo
 bool aquarium::isEmptyCoin(){} // bernilai true apabila tidak ada koin di akuarium
 bool aquarium::isEmptyFood(){} // bernilai true apabila tidak ada makanan di akuariu
 
-int aquarium::findIdxGuppy(guppy el){} // mengembalikan indeks di mana el berada pada listFish
-int aquarium::findIdxPiranha(piranha el){} // mengembalikan indeks di mana el berada pada listFish
-int aquarium::findIdxCoin(coin el){} // mengembalikan indeks di mana el berada pada listCoin
-int aquarium::findIdxFood(food el){} //mengembalikan indeks di mana el berada pada listFoo
+int aquarium::findIdxGuppy(guppy el){
+    int idx = listGuppy.find(el);
+    return idx;
+} // mengembalikan indeks di mana el berada pada listFish
+int aquarium::findIdxPiranha(piranha el){
+    int idx = listPiranha.find(el);
+    return idx;
+} // mengembalikan indeks di mana el berada pada listFish
+int aquarium::findIdxCoin(coin el){
+    int idx = listCoin.find(el);
+    return idx;
+} // mengembalikan indeks di mana el berada pada listCoin
+int aquarium::findIdxFood(food el){
+    int idx = listFood.find(el);
+    return idx;
+} //mengembalikan indeks di mana el berada pada listFoo
 
 guppy aquarium::findGuppy(int id){
     // mengembalikan guppy dengan indeks ke id
@@ -70,6 +82,15 @@ guppy aquarium::findGuppy(int id){
     // cout << search.GetOrientation() << endl;
     return search;
 }
-piranha aquarium::findPiranha(int id){} // mengembalikan piranha dengan indeks ke id
-coin aquarium::getCoin(int id){} // mengembalikan koin dengan indeks ke id
-food aquarium::getFood(int id){} // mengembalikan makanan dengan indeks ke id
+piranha aquarium::findPiranha(int id){
+    piranha search = listPiranha.get(id);
+    return search;
+} // mengembalikan piranha dengan indeks ke id
+coin aquarium::getCoin(int id){
+    coin search = listCoin.get(id);
+    return search;
+} // mengembalikan koin dengan indeks ke id
+food aquarium::getFood(int id){
+    food search = listFood.get(id);
+    return search;
+} // mengembalikan makanan dengan indeks ke id
