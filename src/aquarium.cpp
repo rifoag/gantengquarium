@@ -28,13 +28,32 @@ void aquarium::addGuppy(){
     guppy new_guppy;
     listGuppy.add(new_guppy);
 }
-void aquarium::addPiranha(){} // menambahkan seekor piranha pada listFish
-void aquarium::addCoin(){} // menambahkan sebuah koin pada listCoin
-void aquarium::addSnail(){} // Menambahkan seekor siput pada listSnail
-void aquarium::addFood(){} // menambahkan sebuah makanan pada listFood
+void aquarium::addPiranha(){
+  // menambahkan seekor piranha pada listFish
+    piranha new_piranha;
+    listPiranha.add(new_piranha);
+} 
+void aquarium::addCoin(){
+  // menambahkan sebuah koin pada listCoin
+    coin new_coin;
+    listCoin.add(new_coin);
+}
+void aquarium::addSnail(){
+  // Menambahkan seekor siput pada listSnail
+    snail new_snail;
+    listSnail.add(new_snail);
+}
+void aquarium::addFood(){
+  // menambahkan sebuah makanan pada listFood
+    food new_food;
+    listFood.add(new_food);
+}
 
-void aquarium::delGuppy(int idx){} // menghapus seekor guppy pada listFish
-void aquarium::delPiranha(int idx){} // menghapus seekor piranha pada listFish
+void aquarium::delGuppy(int idx){
+  // menghapus seekor guppy pada listGuppy
+  // listGuppy.remove(listGuppy.get(idx));
+}
+void aquarium::delPiranha(int idx){} // menghapus seekor piranha pada listPiranha
 void aquarium::delCoin(int idx){} // menghapus sebuah koin pada listCoin
 void aquarium::delFood(int idx){} // menghapus sebuah makanan pada listFoo
 bool aquarium::isEmptyCoin(){} // bernilai true apabila tidak ada koin di akuarium
