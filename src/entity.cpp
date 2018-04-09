@@ -12,7 +12,7 @@ entity::entity(){
 	pos.second = rand() % 480;
 }
 
-entity::entity(int x, int y){
+entity::entity(double x, double y){
 	// Memunculkan entitas sesuai dengan parameter yang diterima
 	// Kecuali :
 	// Jika parameter tertentu bernilai -1, maka akan digenerate nilai random dari 0 sampai MAX_WIDTH/MAX_LENGTH nya.
@@ -27,12 +27,12 @@ entity::entity(int x, int y){
 		y = rand() % 480;
 	}
 
-	pos = std::pair<int,int>(x,y);
+	pos = std::pair<double,double>(x,y);
 }
 
 entity::entity(const entity& other){
 	int x=other.pos.first,y=other.pos.second;
-	pos = std::pair<int,int>(x,y);
+	pos = std::pair<double,double>(x,y);
 }
 
 // operator =
@@ -53,5 +53,5 @@ int entity::getOrdinat(){
 }
 
 void entity::setPos(int x, int y){
-	pos = std::make_pair(x,y);
+	pos = std::make_pair(double,double);
 }
