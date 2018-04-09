@@ -60,26 +60,25 @@ bool aquarium::isEmptyCoin(){} // bernilai true apabila tidak ada koin di akuari
 bool aquarium::isEmptyFood(){} // bernilai true apabila tidak ada makanan di akuariu
 
 int aquarium::findIdxGuppy(guppy el){
-    int idx = listGuppy.find(el);
-    return idx;
+    // int idx = listGuppy.find(el);
+    // return idx;
 } // mengembalikan indeks di mana el berada pada listFish
 int aquarium::findIdxPiranha(piranha el){
-    int idx = listPiranha.find(el);
-    return idx;
+    // int idx = listPiranha.find(el);
+    // return idx;
 } // mengembalikan indeks di mana el berada pada listFish
 int aquarium::findIdxCoin(coin el){
-    int idx = listCoin.find(el);
-    return idx;
+    // int idx = listCoin.find(el);
+    // return idx;
 } // mengembalikan indeks di mana el berada pada listCoin
 int aquarium::findIdxFood(food el){
-    int idx = listFood.find(el);
-    return idx;
+    // int idx = listFood.find(el);
+    // return idx;
 } //mengembalikan indeks di mana el berada pada listFoo
 
 guppy aquarium::findGuppy(int id){
     // mengembalikan guppy dengan indeks ke id
     guppy search = listGuppy.get(id);
-    // cout << search.GetOrientation() << endl;
     return search;
 }
 piranha aquarium::findPiranha(int id){

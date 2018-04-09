@@ -99,14 +99,14 @@ class linkedList {
             bool Found = false;
             temp = head;
             while (!Found && temp!=tail){
-                if (el == temp->info){
+                if (el == (temp->info)){
                     Found=true;
                 } else{
                     before = temp;
                     temp = temp->next;
                 }
             }
-            if (Found || temp->info==el){
+            if (Found || (temp->info) ==el){
                 before->next = temp ->next;
                 delete [] temp;
                 delete [] before;
