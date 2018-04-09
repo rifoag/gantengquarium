@@ -7,20 +7,31 @@ using namespace std;
 // ctor
 fish::fish() : entity() {
 	// digunakan untuk mengacak orientasi ikan
-	srand(time(NULL));
-	int orient = rand() % 4;
+	srand((int)time(NULL));
+	// int orient = rand() % 4;
+	this->pos.first = rand() % 640;
+	this->pos.second = rand() % 480;
 
 	growth = 1;
 	fullRate = FULL_TIME;
+	// if (orient == 0){
+	// 	orientation = 'L'; // Kalo bisa dibuat random SIAP
+	// } else if (orient == 1){
+	// 	orientation = 'U'; // Kalo bisa dibuat random SIAP
+	// } else if (orient == 2){
+	// 	orientation = 'R'; // Kalo bisa dibuat random SIAP
+	// } else {
+	// 	orientation = 'D'; // Kalo bisa dibuat random SIAP
+	// }
+
+	int orient = rand() % 2;
 	if (orient == 0){
+		SPEED *= -1;
 		orientation = 'L'; // Kalo bisa dibuat random SIAP
-	} else if (orient == 1){
-		orientation = 'U'; // Kalo bisa dibuat random SIAP
-	} else if (orient == 2){
-		orientation = 'R'; // Kalo bisa dibuat random SIAP
 	} else {
-		orientation = 'D'; // Kalo bisa dibuat random SIAP
+		orientation = 'R'; // Kalo bisa dibuat random SIAP
 	}
+
 	foodEaten = 0;
 }
 
@@ -34,16 +45,23 @@ fish::fish(int x,int y) {
 	foodEaten = 0;
 
 	// digunakan untuk mengacak orientasi ikan
-	srand(time(NULL));
-	int orient = rand() % 4;
+	srand((int)time(NULL));
+	// int orient = rand() % 4;
+	// if (orient == 0){
+	// 	orientation = 'L'; // Kalo bisa dibuat random SIAP
+	// } else if (orient == 1){
+	// 	orientation = 'U'; // Kalo bisa dibuat random SIAP
+	// } else if (orient == 2){
+	// 	orientation = 'R'; // Kalo bisa dibuat random SIAP
+	// } else {
+	// 	orientation = 'D'; // Kalo bisa dibuat random SIAP
+	// }
+
+	int orient = rand() % 2;
 	if (orient == 0){
 		orientation = 'L'; // Kalo bisa dibuat random SIAP
-	} else if (orient == 1){
-		orientation = 'U'; // Kalo bisa dibuat random SIAP
-	} else if (orient == 2){
-		orientation = 'R'; // Kalo bisa dibuat random SIAP
 	} else {
-		orientation = 'D'; // Kalo bisa dibuat random SIAP
+		orientation = 'R'; // Kalo bisa dibuat random SIAP
 	}
 }
 
@@ -60,7 +78,7 @@ fish::fish(const fish& other){
 	pos = other.pos;
 }
 
-// operator = 
+// operator =
 fish& fish::operator=(const fish& other){
 	growth = other.growth;
 	fullRate = other.fullRate;
@@ -98,9 +116,11 @@ void fish::setGrowth(short g) {
 
 // Ikan dapat bergerak dalam 360 derajat
 void fish::move() {
-	// ganti posisi ccd
-	pos.first += 1;
-	pos.second += 2;
+	// double diff;
+	// // ganti posisi ccd
+	// pos.first += diff*11;
+	// pos.second += diff*22;
+	// cout <<"I'm Moving"<<endl;
 }
 
 // Makan

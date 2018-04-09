@@ -11,13 +11,13 @@ class fish : public entity, public movingObject {
         const int STARVE_TIME =  12; // Lamanya ikan merasa lapar, hingga ia mati
         const int FOOD_NEEDED = 8; // Jumlah makanan yang dibutuhkan agar ikan dapat tumbuh
         const int FOOD_RADIUS = 3; // Radius makanan dapat dimakan oleh ikan
-        const int SPEED = 50;
+        int SPEED = 50;
 
         short growth; // Tahap pertumbuhan ikan (1 sampai 3)
         int fullRate; // Tingkat kekenyangan ikan. Maksimal = 10. Saat nilainya 0, ikan akan memasuki state lapar(starving)
         char orientation; // Tampilan ikan, menghadap ke arah 'L', 'R', 'U', atau 'D'
         int foodEaten; // Jumlah makanan yang telah dimakan
-		
+
     public:
         // ctor
         fish();
@@ -27,7 +27,7 @@ class fish : public entity, public movingObject {
         virtual ~fish();
         // cctor
         fish(const fish&);
-        // operator = 
+        // operator =
         fish& operator=(const fish&);
 
         // Getter dan Setter
@@ -45,7 +45,7 @@ class fish : public entity, public movingObject {
         void setGrowth(short g);
 
         // Ikan dapat bergerak dalam 360 derajat
-        void move();
+        virtual void move();;
 
         // Saat lapar, ikan akan mencari makanan terdekat
         virtual void findFood() = 0;

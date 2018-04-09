@@ -18,7 +18,7 @@ entity::entity(int x, int y){
 	// Jika parameter tertentu bernilai -1, maka akan digenerate nilai random dari 0 sampai MAX_WIDTH/MAX_LENGTH nya.
 	// Jika y bernilai -2, maka akan koordinat y yang ada di daerah atas peta (0~BATAS_ATAS)
 	srand(time(NULL));
-	
+
 	if (x == -1){
 		x = rand() % 640;
 	}
@@ -26,7 +26,7 @@ entity::entity(int x, int y){
 	if (y == -1){
 		y = rand() % 480;
 	}
-	
+
 	pos = std::pair<int,int>(x,y);
 }
 
@@ -35,7 +35,7 @@ entity::entity(const entity& other){
 	pos = std::pair<int,int>(x,y);
 }
 
-// operator = 
+// operator =
 entity& entity::operator=(const entity& other){
 	pos = other.pos;
 	return *this;

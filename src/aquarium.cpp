@@ -1,5 +1,5 @@
 #include "aquarium.hpp"
-        	
+
  // ctor
 // Memunculkan satu siput, dimensi akuarium maksimum
 aquarium::aquarium(){
@@ -8,10 +8,11 @@ aquarium::aquarium(){
 // dtor
 aquarium::~aquarium(){
 }
-		
-void aquarium::moveAll() {
-// menggerakkan semua entity yang ada di aquarium
 
+void aquarium::moveAll(double diff) {
+// menggerakkan semua entity yang ada di aquarium
+  guppy temp = listGuppy.getHeadItem();
+  temp.move(diff);
 }
 
 void aquarium::eatAllFish(){}// ikan yang lapar akan mencari makan jika tidak maka tidak terjadi apa apa
@@ -19,7 +20,7 @@ void dropCoinAllFish(){} // ikan yang valid drop coinnya akan mengeluarkan koin,
 void takeCoinAllSnail(){} // semua snail mengambil coin jika ada koin di sekitarnya
 
 void aquarium::addGuppy(){
-    // menambahkan seekor guppy pada list Guppy   
+    // menambahkan seekor guppy pada list Guppy
     guppy new_guppy;
 
     listGuppy.add(new_guppy);
@@ -46,7 +47,7 @@ guppy aquarium::findGuppy(int id){
     guppy search = listGuppy.get(id);
     cout << search.GetOrientation() << endl;
     return search;
-} 
+}
 piranha aquarium::findPiranha(int id){} // mengembalikan piranha dengan indeks ke id
 coin aquarium::getCoin(int id){} // mengembalikan koin dengan indeks ke id
 food aquarium::getFood(int id){} // mengembalikan makanan dengan indeks ke id

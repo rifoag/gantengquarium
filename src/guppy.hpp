@@ -13,9 +13,11 @@ class guppy : public fish {
 		guppy (const guppy&);
         // dtor
         ~guppy();
+
         // operator =
         guppy& operator=(const guppy&);
 
+        void move(double diff);
         // Saat lapar, Guppy akan mendekati makanan ikan yang ada di akuarium
         void findFood();
 
