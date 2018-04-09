@@ -97,7 +97,6 @@ class linkedList {
             node<T>* temp = new node<T>();
             node<T>* before = new node<T>();
             bool Found = false;
-            int i=0;
             temp = head;
             while (!Found && temp!=tail){
                 if (el == temp->info){
@@ -105,12 +104,12 @@ class linkedList {
                 } else{
                     before = temp;
                     temp = temp->next;
-                    i++;
                 }
             }
             if (Found || temp->info==el){
                 before->next = temp ->next;
                 delete [] temp;
+                delete [] before;
             }
         }
 
