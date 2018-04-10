@@ -2,6 +2,7 @@
 #define _PIRANHA_HPP
 #include "fish.hpp"
 #include "guppy.hpp"
+#include "linkedList.hpp"
 
 class piranha : public fish {
     private:
@@ -10,10 +11,10 @@ class piranha : public fish {
     public:
         // ctor
         piranha();
-		// ctor
-		piranha(int, int);
-		// cctor
-		piranha(const piranha&);
+		    // ctor
+		    piranha(int, int);
+		    // cctor
+		    piranha(const piranha&);
         // dtor
         ~piranha();
         // operator =
@@ -28,6 +29,9 @@ class piranha : public fish {
         // piranha mengeluarkan koin setelah memakan guppy
         // Nilai koin = harga ikan * (tahap guppy yang dimakan + 1)
         void produceCoin(int guppyGrowth);
+		    guppy getNearestGuppy(linkedList<guppy>& gupay);
+        void move(double diff);
+     
 };
 
 #endif

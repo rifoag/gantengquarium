@@ -53,6 +53,7 @@ class fish : public entity, public movingObject {
         void restoreFullRate();
         // Mengembalikan true jika ikan lapar
         bool isStarving();
+		bool operator==(const fish& other);
 };
 
 #endif

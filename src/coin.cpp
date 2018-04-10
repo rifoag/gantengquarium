@@ -9,7 +9,7 @@ coin::coin() {
 }
 
 // Ctor user-defined
-coin::coin(int val) {
+coin::coin(int val, double x, double y):entity(x,y) {
 	value = val;
 }
 
@@ -43,4 +43,7 @@ void coin::setValue(int val) {
 // Koin bergerak ke arah bawah saja dan ia diam saat mencapai dasar akuarium
 void coin::move(double diff) {
 	pos.second += 1;
+}
+bool coin::operator==(const coin& other){
+	return (this->entity::operator==(other)) && (this->value==other.value);
 }

@@ -23,11 +23,39 @@ void aquarium::moveAll(double diff) {
      temp1->info.move(diff);
      temp1=temp1->next;
   }
+
+  node<piranha>* temp2 = listPiranha.getHead();
+  while (temp2!=NULL){
+     temp2->info.move(diff);
+     temp2=temp2->next;
+  }
+
+  node<food>* temp3 = listFood.getHead();
+  while (temp3!=NULL){
+     temp3->info.move(diff);
+     temp3=temp3->next;
+  }
 }
 
-void aquarium::eatAllFish(){}// ikan yang lapar akan mencari makan jika tidak maka tidak terjadi apa apa
-void dropCoinAllFish(){} // ikan yang valid drop coinnya akan mengeluarkan koin, jika tidak maka waktu pengeluaran akan berkurang
-void takeCoinAllSnail(){} // semua snail mengambil coin jika ada koin di sekitarnya
+void aquarium::eatAllFish(){
+  node<guppy>* temp = listGuppy.getHead();
+	food Near;
+	while (temp!=NULL){
+		if (temp->info.isStarving()){
+			Near=temp->info.getNearestFood(listFood);
+			temp->info.eat(Near,listFood);
+			temp=temp->next;
+		}
+  }
+}// ikan yang lapar akan mencari makan jika tidak maka tidak terjadi apa apa
+void aquarium::dropCoinAllFish(double diff){
+  node<guppy>* temp = listGuppy.getHead();
+	while (temp!=NULL){
+		temp->info.produceCoin(diff,listCoin);
+		temp=temp->next;
+  }
+} // ikan yang valid drop coinnya akan mengeluarkan koin, jika tidak maka waktu pengeluaran akan berkurang
+void aquarium::takeCoinAllSnail(){} // semua snail mengambil coin jika ada koin di sekitarnya
 
 void aquarium::addGuppy(){
     // menambahkan seekor guppy pada list Guppy
@@ -49,37 +77,52 @@ void aquarium::addSnail(){
     snail new_snail;
     listSnail.add(new_snail);
 }
-void aquarium::addFood(){
+void aquarium::addFood(int x){
   // menambahkan sebuah makanan pada listFood
-    food new_food;
+    food new_food(x);
     listFood.add(new_food);
 }
 
 void aquarium::delGuppy(int idx){
   // menghapus seekor guppy pada listGuppy
-  // listGuppy.remove(listGuppy.get(idx));
+  listGuppy.remove(listGuppy.get(idx));
 }
-void aquarium::delPiranha(int idx){} // menghapus seekor piranha pada listPiranha
-void aquarium::delCoin(int idx){} // menghapus sebuah koin pada listCoin
-void aquarium::delFood(int idx){} // menghapus sebuah makanan pada listFoo
-bool aquarium::isEmptyCoin(){} // bernilai true apabila tidak ada koin di akuarium
-bool aquarium::isEmptyFood(){} // bernilai true apabila tidak ada makanan di akuariu
+void aquarium::delPiranha(int idx){
+  // menghapus seekor piranha pada listPiranha
+  listPiranha.remove(listPiranha.get(idx));
+}
+void aquarium::delCoin(int idx){
+  // menghapus sebuah koin pada listCoin
+  listCoin.remove(listCoin.get(idx));
+}
+void aquarium::delFood(int idx){
+  // menghapus sebuah makanan pada listFood
+  listFood.remove(listFood.get(idx));
+}
+bool aquarium::isEmptyCoin(){
+  // bernilai true apabila tidak ada koin di akuarium
+  return listCoin.isEmpty();
+}
+bool aquarium::isEmptyFood(){
+  // bernilai true apabila tidak ada makanan di akuariu
+  return listFood.isEmpty();
+} 
 
 int aquarium::findIdxGuppy(guppy el){
-    // int idx = listGuppy.find(el);
-    // return idx;
+    int idx = listGuppy.find(el);
+    return idx;
 } // mengembalikan indeks di mana el berada pada listFish
 int aquarium::findIdxPiranha(piranha el){
-    // int idx = listPiranha.find(el);
-    // return idx;
+    int idx = listPiranha.find(el);
+    return idx;
 } // mengembalikan indeks di mana el berada pada listFish
 int aquarium::findIdxCoin(coin el){
-    // int idx = listCoin.find(el);
-    // return idx;
+    int idx = listCoin.find(el);
+    return idx;
 } // mengembalikan indeks di mana el berada pada listCoin
 int aquarium::findIdxFood(food el){
-    // int idx = listFood.find(el);
-    // return idx;
+    int idx = listFood.find(el);
+    return idx;
 } //mengembalikan indeks di mana el berada pada listFoo
 
 guppy aquarium::findGuppy(int id){
@@ -99,3 +142,7 @@ food aquarium::getFood(int id){
     food search = listFood.get(id);
     return search;
 } // mengembalikan makanan dengan indeks ke id
+
+bool aquarium::isThereIsNoFish() {
+  return (listGuppy.getHead() == NULL) && (listPiranha.getHead() == NULL);
+}

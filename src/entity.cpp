@@ -1,6 +1,7 @@
 #include "entity.hpp"
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 #define BATAS_ATAS 150
 
@@ -54,4 +55,10 @@ int entity::getOrdinat(){
 
 void entity::setPos(double x, double y){
 	pos = std::make_pair(x,y);
+}
+bool entity::operator == (const entity& other){
+	return (this->pos.first==other.pos.first) && (this->pos.second==other.pos.second);
+}
+double entity::getDistance(const entity& e1) {
+	return sqrt(pow(this->pos.first-e1.pos.first,2)+pow(this->pos.second-e1.pos.second,2));
 }

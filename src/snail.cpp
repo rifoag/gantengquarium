@@ -52,12 +52,12 @@ void snail::move(double diff){
   }
 
   if (pos.first > SCREEN_WIDTH - 20) {
-      cout << pos.first <<" to left" << endl;
+      // cout << pos.first <<" to left" << endl;
       orientation = 'L';
       // initial = diff*SPEED;
       SPEED *= -1;
   }  else if (pos.first < 20){
-      cout << pos.first<<" to right" << endl;
+      // cout << pos.first<<" to right" << endl;
       orientation = 'R';
       // initial = diff*SPEED;
       SPEED *= -1;
@@ -65,4 +65,7 @@ void snail::move(double diff){
 }
 
 bool snail::takeCoin(coin& cc){
+}
+bool snail::operator==(const snail& other){
+	return (this->entity::operator==(other)) && (this->orientation==other.orientation) && (this->SPEED==other.SPEED);
 }

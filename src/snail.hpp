@@ -31,6 +31,7 @@ class snail : public entity, public movingObject {
 
         // true bila koin berada pada radius (COIN_RADIUS)
         bool takeCoin(coin& cc);
+		bool operator==(const snail& other);
 };
 
 #endif

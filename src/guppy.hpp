@@ -2,8 +2,12 @@
 #define _GUPPY_HPP
 #include "fish.hpp"
 #include "food.hpp"
+#include "linkedList.hpp"
+
 
 class guppy : public fish {
+    private:
+        double time=0;
     public:
         // ctor
         guppy();
@@ -22,11 +26,12 @@ class guppy : public fish {
         void findFood();
 
         // Guppy memakan makanan ikan
-        void eat(food& feed);
+        void eat(food& feed,linkedList<food>& listFood);
 
         // Guppy mengeluarkan koin setiap periode tertentu
         // Nilai koin = Growth * 5
-        void produceCoin();
+        void produceCoin(double diff,linkedList<coin>& listCoin);
+		food getNearestFood(linkedList<food>& feed);
 };
 
 #endif
