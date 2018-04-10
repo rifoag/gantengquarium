@@ -1,6 +1,6 @@
 #include "piranha.hpp"
 #include "linkedList.hpp"
-//#include "oop.hpp"
+#include "oop.hpp"
 #include <math.h>
 using namespace std;
 
@@ -40,7 +40,7 @@ void piranha::findFood(double diff, linkedList<guppy>& listGuppy){
 
 // piranha memakan guppy
 void piranha::eat(guppy& prey,linkedList<guppy>& listGuppy,linkedList<coin>& listCoin){
-	if (!listGuppy.isEmpty && this->getDistance(prey)<=FOOD_RADIUS){
+	if (!listGuppy.isEmpty() && this->getDistance(prey)<=FOOD_RADIUS){
 		fullRate=FULL_TIME;
 		foodEaten++;
 		if (foodEaten==FOOD_NEEDED && growth<3){
@@ -78,10 +78,10 @@ void piranha::move(double diff, linkedList<guppy>& listGuppy){
 	} else {
 		fish::move(diff);
 	}
-
-	// if (cos(orientation) > 0) {
-	//   draw_image("piranhaRight.png", pos.first, pos.second);
-	// } else {
-	//   draw_image("piranhaLeft.png", pos.first, pos.second);
-	// }
+    fullRate-=diff;
+	if (cos(orientation) > 0) {
+	  draw_image("piranhaRight.png", pos.first, pos.second);
+	} else {
+	  draw_image("piranhaLeft.png", pos.first, pos.second);
+	}
 }

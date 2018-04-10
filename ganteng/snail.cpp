@@ -1,5 +1,5 @@
 #include "snail.hpp"
-//#include "oop.hpp"
+#include "oop.hpp"
 #include <random>
 #include "linkedList.hpp"
 // ctor
@@ -47,32 +47,18 @@ void snail::move(double diff,linkedList<coin>& listCoin){
 	if (!listCoin.isEmpty()){
 		if (this->getNearestCoin(listCoin).getAbsis() > this->pos.first) {
 			this->pos.first += SPEED*diff*1;
+			draw_image("snailRight.png", pos.first, pos.second);
 		} else if (this->getNearestCoin(listCoin).getAbsis() < this->pos.first) {
 			this->pos.first += SPEED*diff*(-1);
+			draw_image("snailLeft.png", pos.first, pos.second);
 		} else {
 			this->pos.first += 0;
+			draw_image("snailRight.png", pos.first, pos.second);
 		}
 	} else {
 		this->pos.first += 0;
+		draw_image("snailRight.png", pos.first, pos.second);
 	}
-    //pos.first = pos.first + diff*SPEED;
-  //   draw_image("snailRight.png", pos.first, pos.second);
-  // } else {
-  //   pos.first = pos.first + diff*SPEED;
-  //   draw_image("snailLeft.png", pos.first, pos.second);
-  // }
-
-  // if (pos.first > SCREEN_WIDTH - 20) {
-  //     // cout << pos.first <<" to left" << endl;
-  //     orientation = 'L';
-  //     // initial = diff*SPEED;
-  //     SPEED *= -1;
-  // }  else if (pos.first < 20){
-  //     // cout << pos.first<<" to right" << endl;
-  //     orientation = 'R';
-  //     // initial = diff*SPEED;
-  //     SPEED *= -1;
-  // }
 }
 
 coin snail::getNearestCoin(linkedList<coin>& listCoin) {

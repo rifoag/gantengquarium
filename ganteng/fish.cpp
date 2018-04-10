@@ -23,7 +23,7 @@ fish::fish() : entity() {
 	this->pos.first = dist(gen);
 	this->pos.second = dist2(gen);
 
-	growth = 3;
+	growth = 1;
 	fullRate = FULL_TIME;
 	// if (orient == 0){
 	// 	orientation = 'L'; // Kalo bisa dibuat random SIAP
@@ -115,7 +115,7 @@ short fish::getGrowth() {
 	return growth;
 }
 // Menyetel fullRate ikan
-void fish::setFullRate(int f) {
+void fish::setFullRate(double f) {
 	fullRate = f;
 }
 // Menyetel orientasi ikan

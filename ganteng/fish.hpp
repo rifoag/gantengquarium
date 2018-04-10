@@ -14,7 +14,7 @@ class fish : public entity, public movingObject {
         int SPEED = 100;
 
         short growth; // Tahap pertumbuhan ikan (1 sampai 3)
-        int fullRate; // Tingkat kekenyangan ikan. Maksimal = 10. Saat nilainya 0, ikan akan memasuki state lapar(starving)
+        double fullRate; // Tingkat kekenyangan ikan. Maksimal = 10. Saat nilainya 0, ikan akan memasuki state lapar(starving)
         double orientation; // Tampilan ikan, menghadap ke arah 'L', 'R', 'U', atau 'D'
         int foodEaten; // Jumlah makanan yang telah dimakan
 
@@ -38,7 +38,7 @@ class fish : public entity, public movingObject {
         // Mengembalikan growth (pertumbuhan) ikan saat ini
         short getGrowth();
         // Menyetel fullRate ikan
-        void setFullRate(int f);
+        void setFullRate(double f);
         // Menyetel orientasi ikan
         void setOrientation(char o);
         // Menyetel pertumbuhan ikan

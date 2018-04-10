@@ -13,9 +13,16 @@ aquarium::~aquarium(){
 void aquarium::moveAll(double diff) {
 // menggerakkan semua entity yang ada di aquarium
   node<guppy>* temp = listGuppy.getHead();
+  node<guppy>* temp0;
   while (temp!=NULL){
-     temp->info.move(diff,listFood);
-     temp=temp->next;
+    if (temp->info.GetFullRate()<=-12){
+      temp0=temp->next;
+      listGuppy.remove(temp->info);
+      temp=temp0;
+    }else{
+      temp->info.move(diff,listFood);
+      temp=temp->next;
+    }
   }
 
   node<snail>* temp1 = listSnail.getHead();
@@ -25,9 +32,16 @@ void aquarium::moveAll(double diff) {
   }
 
   node<piranha>* temp2 = listPiranha.getHead();
+  node<piranha>* temp4;
   while (temp2!=NULL){
-     temp2->info.move(diff,listGuppy);
-     temp2=temp2->next;
+    if (temp->info.GetFullRate()<=-12){
+      temp4=temp2->next;
+      listPiranha.remove(temp2->info);
+      temp2=temp4;
+    }else{
+      temp2->info.move(diff,listGuppy);
+      temp2=temp2->next;
+    }
   }
 
   node<food>* temp3 = listFood.getHead();

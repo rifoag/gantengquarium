@@ -37,7 +37,7 @@ void guppy::move(double diff,linkedList<food>& listFood){
   } else{	  
 	fish::move(diff);
   }
-
+  fullRate-=diff;
   if (cos(orientation) > 0) {
     if (growth == 1) {
       draw_image("ikanLv1Right.png", pos.first, pos.second);
@@ -55,7 +55,6 @@ void guppy::move(double diff,linkedList<food>& listFood){
       draw_image("ikanLv3LeftC.png", pos.first, pos.second);
     }
   }
-
 }
 
 // Saat lapar, Guppy akan mendekati makanan ikan yang ada di akuarium
