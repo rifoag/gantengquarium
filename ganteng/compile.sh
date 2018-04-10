@@ -1,1 +1,0 @@
-g++ -std=c++11 aquarium.cpp coin.cpp entity.cpp fish.cpp food.cpp guppy.cpp piranha.cpp snail.cpp demo.cpp -o demo
