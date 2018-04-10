@@ -23,6 +23,6 @@ int food::getSpeed(){
 	return FOOD_SPEED;
 }
 
-void food::move(){
+void food::move(double diff){
 	pos.second+=1;
 }

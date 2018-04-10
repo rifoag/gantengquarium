@@ -8,8 +8,10 @@ class snail : public entity, public movingObject {
     private:
         // Konstanta
         const int COIN_RADIUS=5; //Radius koin yang dapat diambil siput
-    
-    public: 
+        int SPEED = 50;
+        char orientation;
+
+    public:
         // ctor
         snail();
 		// ctor user defined
@@ -25,7 +27,7 @@ class snail : public entity, public movingObject {
         // Siput hanya bergerak ke kiri dan ke kanan
         // Siput hanya bergerak saat terdapat koin di akuarium
         // Siput berdekat ke koin terdekat
-        void move();
+        void move(double diff);
 
         // true bila koin berada pada radius (COIN_RADIUS)
         bool takeCoin(coin& cc);

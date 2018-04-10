@@ -19,7 +19,7 @@ class food : public entity, public movingObject {
         food& operator=(const food&);
 
         // makanan ikan hanya bergerak ke arah bawah. Saat mencapai dasar akuarium, makanan menghilang
-        void move();
+        void move(double diff);
         // mengembalikan nilai speed milik food
         int getSpeed();
 };

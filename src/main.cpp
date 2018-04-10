@@ -12,16 +12,15 @@ int main( int argc, char* args[] )
     // variable aquarium
     aquarium arkav;
     arkav.addGuppy();
+    arkav.addGuppy();
+    arkav.addGuppy();
+    arkav.addSnail();
 
     // Menghitung FPS
     int frames_passed = 0;
     double fpc_start = time_since_start();
     std::string fps_text = "FPS: 0";
     double move = 0;
-    // Posisi ikan
-    double cy = SCREEN_HEIGHT / 2;
-    double cx = SCREEN_WIDTH / 2;
-    int isIkanLeft = -1;
 
     // posisi cursor
     double cursor_x = SCREEN_WIDTH / 2;
@@ -70,21 +69,14 @@ int main( int argc, char* args[] )
             }
         }
 
-        // gerakkan ikan
-        if (cx > SCREEN_WIDTH - 20) {
-          isIkanLeft = 1;
-        } else if (cx < 20){
-          isIkanLeft = -1;
-        }
-
 
         // Proses masukan yang bersifat "tombol"
         for (auto key : get_tapped_keys()) {
             switch (key) {
             // r untuk reset
             case SDLK_r:
-                cy = SCREEN_HEIGHT / 2;
-                cx = SCREEN_WIDTH / 2;
+                arkav.addGuppy();
+                money -= 100;
                 break;
             // x untuk keluar
             case SDLK_x:
@@ -148,15 +140,9 @@ int main( int argc, char* args[] )
             }
         }
         // move aquarium
-        move += sec_since_last;
+        move = sec_since_last;
         arkav.moveAll(move);
-        if (isIkanLeft == -1){
-            cx += 2*speed * sec_since_last;
-            draw_image("ikanLv1Right.png", cx, cy);
-        } else {
-            cx -= 2*speed * sec_since_last;
-            draw_image("ikanLv1Left.png", cx, cy);
-        }
+
         draw_image("mainCursor.png", cursor_x, cursor_y);
 
         update_screen();

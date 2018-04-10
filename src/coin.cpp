@@ -41,6 +41,6 @@ void coin::setValue(int val) {
 }
 
 // Koin bergerak ke arah bawah saja dan ia diam saat mencapai dasar akuarium
-void coin::move() {
+void coin::move(double diff) {
 	pos.second += 1;
 }

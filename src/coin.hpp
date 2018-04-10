@@ -6,7 +6,7 @@
 class coin : public entity, public movingObject {
     private:
         int value; // Nilai koin
-    
+
     public:
         // ctor
         // koin dimunculkan di bagian atas akuarium
@@ -25,7 +25,7 @@ class coin : public entity, public movingObject {
         void setValue(int val);
 
         // Koin bergerak ke arah bawah saja dan ia diam saat mencapai dasar akuarium
-        void move();
+        void move(double diff);
 };
 
 #endif

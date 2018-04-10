@@ -1,18 +1,27 @@
 #include "fish.hpp"
 #include <stdlib.h>
 #include <time.h>
+#include <random>
 
 using namespace std;
 
 // ctor
 fish::fish() : entity() {
 	// digunakan untuk mengacak orientasi ikan
-	srand((int)time(NULL));
-	// int orient = rand() % 4;
-	this->pos.first = rand() % 640;
-	this->pos.second = rand() % 480;
+	// srand((int)time(0));
+	// // int orient = rand() % 4;
+	// this->pos.first = rand() % 640;
+	// this->pos.second = rand() % 280 + 200;
 
-	growth = 1;
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<> dist(40, 600);
+	uniform_int_distribution<> dist2(200, 400);
+	uniform_int_distribution<> dist3(0, 360);
+	this->pos.first = dist(gen);
+	this->pos.second = dist2(gen);
+
+	growth = 3;
 	fullRate = FULL_TIME;
 	// if (orient == 0){
 	// 	orientation = 'L'; // Kalo bisa dibuat random SIAP
@@ -24,13 +33,15 @@ fish::fish() : entity() {
 	// 	orientation = 'D'; // Kalo bisa dibuat random SIAP
 	// }
 
-	int orient = rand() % 2;
-	if (orient == 0){
-		SPEED *= -1;
-		orientation = 'L'; // Kalo bisa dibuat random SIAP
-	} else {
-		orientation = 'R'; // Kalo bisa dibuat random SIAP
-	}
+	// int orient = rand() % 2;
+	// if (orient == 0){
+	// 	SPEED *= -1;
+	// 	orientation = 'L'; // Kalo bisa dibuat random SIAP
+	// } else {
+	// 	orientation = 'R'; // Kalo bisa dibuat random SIAP
+	// }
+
+	orientation = dist3(gen);
 
 	foodEaten = 0;
 }
@@ -115,7 +126,7 @@ void fish::setGrowth(short g) {
 }
 
 // Ikan dapat bergerak dalam 360 derajat
-void fish::move() {
+void fish::move(double diff) {
 	// double diff;
 	// // ganti posisi ccd
 	// pos.first += diff*11;

@@ -17,6 +17,12 @@ void aquarium::moveAll(double diff) {
      temp->info.move(diff);
      temp=temp->next;
   }
+
+  node<snail>* temp1 = listSnail.getHead();
+  while (temp1!=NULL){
+     temp1->info.move(diff);
+     temp1=temp1->next;
+  }
 }
 
 void aquarium::eatAllFish(){}// ikan yang lapar akan mencari makan jika tidak maka tidak terjadi apa apa
@@ -32,7 +38,7 @@ void aquarium::addPiranha(){
   // menambahkan seekor piranha pada listFish
     piranha new_piranha;
     listPiranha.add(new_piranha);
-} 
+}
 void aquarium::addCoin(){
   // menambahkan sebuah koin pada listCoin
     coin new_coin;

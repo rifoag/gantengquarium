@@ -4,7 +4,7 @@
 
 class movingObject {
     // objek dapat bergerak, berubah posisinya
-    virtual void move() = 0;
+    virtual void move(double diff) = 0;
 };
 
 #endif
