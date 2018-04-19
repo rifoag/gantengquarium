@@ -59,19 +59,21 @@ public class LinkedList<T>{
         Node<T> before=null;
         Boolean found = false;
         // periksa apakah head = el
-        if (el == temp.getData()){
-            head = temp.getNext();
-        }
-        while (!found && temp!=null){
-            if (el == (temp.getData())){
-                found=true;
-            } else{
-                before = temp;
-                temp = temp.getNext();
+        if (!isEmpty()){
+            if (el == temp.getData()){
+                head = temp.getNext();
             }
-        }
-        if (found){
-            before.setNext(temp.getNext());
+            while (!found && temp!=null){
+                if (el == (temp.getData())){
+                    found=true;
+                } else{
+                    before = temp;
+                    temp = temp.getNext();
+                }
+            }
+            if (found){
+                before.setNext(temp.getNext());
+            }
         }
     }
 }
