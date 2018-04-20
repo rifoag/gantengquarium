@@ -1,5 +1,5 @@
-import javafx.util.*;
-import java.util.*;
+import javafx.util.Pair;
+import java.util.Random;
 public class entity{
     protected Pair<Double,Double> pos;
     public entity(){
