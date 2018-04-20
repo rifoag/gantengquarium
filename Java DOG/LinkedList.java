@@ -18,7 +18,7 @@ public class LinkedList<T>{
             Boolean found = false;
             int i=0;
             while(!found && temp!=null){
-                if(el == temp.getData()){
+                if(el==temp.getData()){
                     found=true;
                 } else{
                     temp = temp.getNext();
@@ -60,19 +60,20 @@ public class LinkedList<T>{
         Boolean found = false;
         // periksa apakah head = el
         if (!isEmpty()){
-            if (el == temp.getData()){
+            if (el==temp.getData()){
                 head = temp.getNext();
-            }
-            while (!found && temp!=null){
-                if (el == (temp.getData())){
-                    found=true;
-                } else{
-                    before = temp;
-                    temp = temp.getNext();
+            }else{
+                while (!found && temp!=null){
+                    if (el==temp.getData()){
+                        found=true;
+                    } else{
+                        before = temp;
+                        temp = temp.getNext();
+                    }
                 }
-            }
-            if (found){
-                before.setNext(temp.getNext());
+                if (found){
+                    before.setNext(temp.getNext());
+                }
             }
         }
     }
