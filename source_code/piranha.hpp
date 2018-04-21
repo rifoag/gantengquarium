@@ -8,7 +8,7 @@
 
 class piranha : public fish {
     private:
-        int price; // harga piranha
+        const int price = 1000; // harga piranha
 
     public:
         // ctor
