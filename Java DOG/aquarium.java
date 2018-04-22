@@ -1,22 +1,22 @@
-public class aquarium{
+public class Aquarium{
     private static final int MAX_LENGTH = 640;
     private static final int MAX_WIDTH = 480;
     private int money;
-    private LinkedList<guppy> listGuppy;
-    private LinkedList<piranha> listPiranha;
-    private LinkedList<coin> listCoin;
-    private LinkedList<snail> listSnail;
-    private LinkedList<food> listFood;
-    public aquarium(){
-        listGuppy = new LinkedList<guppy>();
-        listPiranha = new LinkedList<piranha>();
-        listCoin = new LinkedList<coin>();
-        listSnail = new LinkedList<snail>();
-        listFood = new LinkedList<food>();
+    private LinkedList<Guppy> listGuppy;
+    private LinkedList<Piranha> listPiranha;
+    private LinkedList<Coin> listCoin;
+    private LinkedList<Snail> listSnail;
+    private LinkedList<Food> listFood;
+    public Aquarium(){
+        listGuppy = new LinkedList<Guppy>();
+        listPiranha = new LinkedList<Piranha>();
+        listCoin = new LinkedList<Coin>();
+        listSnail = new LinkedList<Snail>();
+        listFood = new LinkedList<Food>();
         money = 10000;
     }
     public void moveAll(double diff){
-        // menggerakkan semua entity yang ada di aquarium
+        // menggerakkan semua entity yang ada di Aquarium
         moveGuppy(diff);
         moveSnail(diff);
         movePiranha(diff);
@@ -24,9 +24,9 @@ public class aquarium{
         moveCoin(diff);
     }
     public void moveGuppy(double diff){
-        // Menggerakkan seluruh guppy
-        Node<guppy> tempGuppy = listGuppy.getHead();
-        Node<guppy> tempGuppy_2;
+        // Menggerakkan seluruh Guppy
+        Node<Guppy> tempGuppy = listGuppy.getHead();
+        Node<Guppy> tempGuppy_2;
         while (tempGuppy != null){
             if (tempGuppy.getData().GetFullRate() <= -12){
                 // Guppy mati
@@ -42,17 +42,17 @@ public class aquarium{
     }
         
     public void moveSnail(double diff){
-        // Mengerakkan seluruh snail
-        Node<snail> tempSnail = listSnail.getHead();
+        // Mengerakkan seluruh Snail
+        Node<Snail> tempSnail = listSnail.getHead();
         while (tempSnail != null){
             tempSnail.getData().move(diff,listCoin,money);
             tempSnail = tempSnail.getNext();
         }
     }
     public void movePiranha(double diff){
-        // Menggerakkan seluruh piranha
-        Node<piranha> tempPiranha = listPiranha.getHead();
-        Node<piranha> tempPiranha_2;
+        // Menggerakkan seluruh Piranha
+        Node<Piranha> tempPiranha = listPiranha.getHead();
+        Node<Piranha> tempPiranha_2;
         while (tempPiranha != null){
             if (tempPiranha.getData().GetFullRate() <= -12){
                 // Piranha mati
@@ -67,8 +67,8 @@ public class aquarium{
     }
         
     public void moveFood(double diff){
-        // Menggerakkan seluruh food
-        Node<food> tempFood = listFood.getHead();
+        // Menggerakkan seluruh Food
+        Node<Food> tempFood = listFood.getHead();
         while (tempFood != null){
             tempFood.getData().move(diff, listFood);
             tempFood = tempFood.getNext();
@@ -76,8 +76,8 @@ public class aquarium{
     }
         
     public void moveCoin(double diff){
-        // Menggerakkan seluruh coin
-        Node<coin> tempCoin = listCoin.getHead();
+        // Menggerakkan seluruh Coin
+        Node<Coin> tempCoin = listCoin.getHead();
         while(tempCoin != null){
             tempCoin.getData().move(diff);
             tempCoin = tempCoin.getNext();
@@ -85,32 +85,32 @@ public class aquarium{
     }
         
     public void addGuppy(){
-        // menambahkan seekor guppy pada list Guppy
-        guppy new_guppy = new guppy();
+        // menambahkan seekor Guppy pada list Guppy
+        Guppy new_guppy = new Guppy();
         listGuppy.add(new_guppy);
     }
         
     public void addPiranha(){
-        // menambahkan seekor piranha pada listFish
-        piranha new_piranha = new piranha();
+        // menambahkan seekor Piranha pada listFish
+        Piranha new_piranha = new Piranha();
         listPiranha.add(new_piranha);
     }
         
     public void addCoin(){
         // menambahkan sebuah koin pada listCoin
-        coin new_coin = new coin();
+        Coin new_coin = new Coin();
         listCoin.add(new_coin);
     }
         
     public void addSnail(){
         // Menambahkan seekor siput pada listSnail
-        snail new_snail = new snail();
+        Snail new_snail = new Snail();
         listSnail.add(new_snail);
     }
         
     public void addFood(int x){
         // menambahkan sebuah makanan pada listFood
-        food new_food = new food(x);
+        Food new_food = new Food(x);
         listFood.add(new_food);
     }
         

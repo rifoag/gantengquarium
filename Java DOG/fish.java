@@ -1,5 +1,5 @@
 import java.util.Random;
-public class Fish extends Entity implements movingObject{
+public abstract class Fish extends Entity implements movingObject{
     protected static final int FULL_TIME = 10;
     protected static final int STARVE_TIME = -12;
     protected static final int FOOD_NEEDED = 4;
@@ -91,10 +91,11 @@ public class Fish extends Entity implements movingObject{
       this.setPos(this.getAbsis()+SPEED*diff*Math.cos(orientation),this.getOrdinat()+SPEED*diff*Math.sin(orientation));
     } 
 
+    // driver, sebelumnya kelas tidak abstrak
     public static void main (String [] args){
-        Fish f = new Fish();
-        System.out.println(f.toString());
-        f.move(0.03);
-        System.out.println(f.toString());
+        // Fish f = new Fish();
+        // System.out.println(f.toString());
+        // f.move(0.03);
+        // System.out.println(f.toString());
     }
 }
