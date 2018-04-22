@@ -1,19 +1,19 @@
-public class coin extends entity implements movingObject{
+public class Coin extends Entity implements movingObject{
     private int value;
-    public coin(){
+    public Coin(){
         value=15;
     }
-    public coin(int val,double x,double y){
+    public Coin(int val,double x,double y){
         super(x,y);
         value=val;
     }
-    public Boolean equals(coin other){
+    public Boolean equals(Coin other){
         return super.equals(other) && this.value==other.value;
     }
     public void setVal(int val){
         value=val;
     }
-    public int getval(){
+    public int getVal(){
         return value;
     }
     public void move(double diff){
@@ -23,5 +23,11 @@ public class coin extends entity implements movingObject{
     }
     public String toString(){
         return "("+this.getAbsis()+","+this.getOrdinat()+","+value+")";    
+    }
+
+    public static void main (String [] args){
+        Coin c = new Coin();
+        System.out.println(c.toString());
+        System.out.println(c.getVal());
     }
 }

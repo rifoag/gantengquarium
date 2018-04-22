@@ -1,21 +1,21 @@
-public class snail extends entity{
-    private static final int COIN_RADIUS = 15; //Radius coin yang dapat diambil siput
+public class Snail extends Entity{
+    private static final int COIN_RADIUS = 15; //Radius Coin yang dapat diambil siput
     private static final int SPEED = 50;
-    public snail(){
+    public Snail(){
         // ctor
-        // snail selalu ada di bagian bawah akuarium
+        // Snail selalu ada di bagian bawah akuarium
         super(-1,440);
     }
-    public snail(int x,int y){
+    public Snail(int x,int y){
         super(x,y);
     }    
-    public void move(double diff,LinkedList<coin> listCoin,int money){
+    public void move(double diff,LinkedList<Coin> listCoin,int money){
         // Siput hanya berada di dasar akuarium
         // Siput hanya bergerak ke kiri dan ke kanan
         // Siput hanya bergerak saat terdapat koin di akuarium
         // Siput berdekat ke koin terdekat
         if (!listCoin.isEmpty()){
-            coin Near = this.getNearestCoin(listCoin);
+            Coin Near = this.getNearestCoin(listCoin);
             if (Near.getAbsis() > this.getAbsis()) {
                 setPos(this.getAbsis()+SPEED*diff*1, this.getOrdinat());
                 // draw_image("snailRight.png", pos.first, pos.second);
@@ -31,10 +31,10 @@ public class snail extends entity{
         }
     }
         
-    public coin getNearestCoin(LinkedList<coin> listCoin) {
-        // mengembalikan coin terdekat dari posisi snail
-        Node<coin> temp = listCoin.getHead();
-        coin minCoin = temp.getData();
+    public Coin getNearestCoin(LinkedList<Coin> listCoin) {
+        // mengembalikan Coin terdekat dari posisi Snail
+        Node<Coin> temp = listCoin.getHead();
+        Coin minCoin = temp.getData();
         temp = temp.getNext();
         while (temp != null) {
             if (this.getDistance(temp.getData()) < this.getDistance(minCoin)) {
@@ -45,11 +45,23 @@ public class snail extends entity{
         return minCoin;
     }
         
-    public void takeCoin(coin cc,LinkedList<coin> listCoin, int money){
-        // mengambil coin cc bila coin berada pada radius (COIN_RADIUS)
+    public void takeCoin(Coin cc,LinkedList<Coin> listCoin, int money){
+        // mengambil Coin cc bila Coin berada pada radius (COIN_RADIUS)
         if (this.getDistance(cc)<=COIN_RADIUS){
             money += cc.getVal();
             listCoin.remove(cc);
         }
-    }    
+    }
+
+    public static void main(String[] args){
+        Snail s = new Snail();
+        double diff = 0.02;
+        LinkedList<Coin> listCoin = new LinkedList<Coin>();
+        Coin cc = new Coin();
+        listCoin.add(cc);
+        int money = 0;
+        System.out.println(s.toString());
+        s.move(diff, listCoin, money);
+        System.out.println(s.toString());
+    }
 }

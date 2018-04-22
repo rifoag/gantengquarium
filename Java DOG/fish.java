@@ -1,5 +1,5 @@
 import java.util.Random;
-public class fish extends entity implements movingObject{
+public class Fish extends Entity implements movingObject{
     protected static final int FULL_TIME = 10;
     protected static final int STARVE_TIME = -12;
     protected static final int FOOD_NEEDED = 4;
@@ -9,14 +9,14 @@ public class fish extends entity implements movingObject{
     protected double fullRate;
     protected double orientation;
     protected int foodEaten;
-    public fish(){
+    public Fish(){
         Random rand=new Random();
         growth = 1;
 	    fullRate = FULL_TIME;
 	    orientation = rand.nextDouble() * 360;
 	    foodEaten = 0;
     }
-    public fish(int x,int y){
+    public Fish(int x,int y){
         super(x,y);
         Random rand=new Random();
         growth = 1;
@@ -24,7 +24,7 @@ public class fish extends entity implements movingObject{
 	    orientation = rand.nextDouble() * 360;
 	    foodEaten = 0;
     }
-    public Boolean equals(fish other){
+    public Boolean equals(Fish other){
         return super.equals(other) && (growth==other.growth) && (fullRate==other.fullRate) && (orientation==other.orientation) && (foodEaten==other.foodEaten);
     }
     public double GetFullRate(){
@@ -90,4 +90,11 @@ public class fish extends entity implements movingObject{
       }
       this.setPos(this.getAbsis()+SPEED*diff*Math.cos(orientation),this.getOrdinat()+SPEED*diff*Math.sin(orientation));
     } 
+
+    public static void main (String [] args){
+        Fish f = new Fish();
+        System.out.println(f.toString());
+        f.move(0.03);
+        System.out.println(f.toString());
+    }
 }
