@@ -19,7 +19,7 @@ public class Snail extends Entity {
   /**
     Method to move the damn snail.
    */
-  public void move(double diff,LinkedList<Coin> listCoin,int money) {
+  public void move(double diff,LinkedList<Coin> listCoin,Integer money) {
     // Siput hanya berada di dasar akuarium
     // Siput hanya bergerak ke kiri dan ke kanan
     // Siput hanya bergerak saat terdapat koin di akuarium
@@ -61,7 +61,7 @@ public class Snail extends Entity {
   /**
     Method take coin.
    */
-  public void takeCoin(Coin cc,LinkedList<Coin> listCoin, int money) {
+  public void takeCoin(Coin cc, LinkedList<Coin> listCoin, Integer money) {
     // mengambil Coin cc bila Coin berada pada radius (COIN_RADIUS)
     if (this.getDistance(cc) <= COIN_RADIUS) {
       money += cc.getVal();

@@ -1,7 +1,7 @@
 public class Aquarium {
   private static final int MAX_LENGTH = 640;
   private static final int MAX_WIDTH = 480;
-  private int money;
+  private Integer money;
   private LinkedList<Guppy> listGuppy;
   private LinkedList<Piranha> listPiranha;
   private LinkedList<Coin> listCoin;

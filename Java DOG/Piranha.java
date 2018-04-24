@@ -10,6 +10,10 @@ public class Piranha extends Fish {
     this.price = price;
   }
 
+  public int getPrice(){
+    return price;
+  }
+
   public Boolean equals(Piranha other) {
     return super.equals(other) && (price == other.price);
   }
