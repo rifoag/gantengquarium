@@ -73,14 +73,14 @@ public class Snail extends Entity {
     Main Method to test the damn shits.
    */
   public static void main(String[] args) {
-    Snail s = new Snail();
-    double diff = 0.02;
-    LinkedList<Coin> listCoin = new LinkedList<Coin>();
-    Coin cc = new Coin();
-    listCoin.add(cc);
-    int money = 0;
-    System.out.println(s.toString());
-    s.move(diff, listCoin, money);
-    System.out.println(s.toString());
+      Snail s = new Snail();
+      double diff = 0.02;
+      LinkedList<Coin> listCoin = new LinkedList<Coin>();
+      Coin cc = new Coin();
+      listCoin.add(cc);
+      int money = 0;
+      System.out.println(s.toString());
+      s.move(diff, listCoin, money);
+      System.out.println(s.toString());
   }
 }

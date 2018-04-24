@@ -1,5 +1,5 @@
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class TestJunit_Snail {
 
@@ -14,8 +14,11 @@ public class TestJunit_Snail {
        s.move(0.1, listCoin, money);
        assertEquals(s.getOrdinat(), 440, 0.1);
        double abs = s.getAbsis();
+       assertEquals(s.getAbsis(), abs, 0.1);
        listCoin.add(cc);
        s.move(0.1, listCoin, money);
-       
+       assertFalse(s.getAbsis() == abs);
+       Coin cc2 = s.getNearestCoin(listCoin);
+       assertTrue(cc.equals(cc2));   
    }
 }
