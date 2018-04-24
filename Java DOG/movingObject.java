@@ -1,3 +1,3 @@
-public interface movingObject{
-    public void move(double diff);
+public interface Movingobject {
+  public void move(double diff);
 }
