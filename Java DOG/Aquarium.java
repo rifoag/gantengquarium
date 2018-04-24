@@ -40,7 +40,7 @@ public class Aquarium {
     Node<Guppy> tempGuppy = listGuppy.getHead();
     Node<Guppy> tempGuppy2;
     while (tempGuppy != null) {
-      if (tempGuppy.getData().GetFullRate() <= -12) {
+      if (tempGuppy.getData().getFullRate() <= -12) {
         // Guppy mati
         tempGuppy2 = tempGuppy.getNext();
         listGuppy.remove(tempGuppy.getData());
@@ -73,7 +73,7 @@ public class Aquarium {
     Node<Piranha> tempPiranha = listPiranha.getHead();
     Node<Piranha> tempPiranha2;
     while (tempPiranha != null) {
-      if (tempPiranha.getData().GetFullRate() <= -12) {
+      if (tempPiranha.getData().getFullRate() <= -12) {
         // Piranha mati
         tempPiranha2 = tempPiranha.getNext();
         listPiranha.remove(tempPiranha.getData());
@@ -173,5 +173,11 @@ public class Aquarium {
    */
   public void setMoney(int money) {
     this.money = money;
+  }
+
+  public static void main(String[] args){
+    Aquarium a1 = new Aquarium();
+
+    System.out.println(a1.isThereIsNoFish());
   }
 }
