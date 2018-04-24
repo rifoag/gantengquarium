@@ -20,9 +20,13 @@ public abstract class Entity {
     Random rand = new Random();
     if (x == -1) {
       this.x = rand.nextDouble() * 640;
+    } else {
+      this.x = x;
     }
     if (y == -1) {
       this.y = rand.nextDouble() * 480;
+    } else{
+      this.y = y;
     }
   }
 

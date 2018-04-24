@@ -32,9 +32,6 @@ public class Food extends Entity implements movingObject {
    */
   public static void main(String[] args) { // Main Program
     Food f = new Food(300);
-    LinkedList<Food> listFood = new LinkedList<Food>();
-    System.out.println(f.toString());
-    f.move(0.03, listFood);
     System.out.println(f.toString());
   }
 }

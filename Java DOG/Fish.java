@@ -6,7 +6,7 @@ public abstract class Fish extends Entity implements movingObject {
   protected static final int FOOD_NEEDED = 4;
   protected static final int FOOD_RADIUS = 27;
   protected int SPEED = 115;
-  protected short growth;
+  protected int growth;
   protected double fullRate;
   protected double orientation;
   protected int foodEaten;
@@ -40,7 +40,7 @@ public abstract class Fish extends Entity implements movingObject {
     return orientation;
   }
   
-  public short getGrowth() {
+  public int getGrowth() {
     return growth;
   }
 
@@ -52,7 +52,7 @@ public abstract class Fish extends Entity implements movingObject {
     orientation = o;
   }
 
-  public void setGrowth(short g) {
+  public void setGrowth(int g) {
     growth = g;
   }
 
